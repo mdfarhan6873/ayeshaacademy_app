@@ -42,8 +42,8 @@ export default function ScheduleForm({
 
   const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
   const subjects = [
-    "Mathematics", "English", "Hindi", "Science", "Social Science", 
-    "Physics", "Chemistry", "Biology", "History", "Geography", 
+    "Mathematics", "English", "Hindi", "Science", "Social Science",
+    "Physics", "Chemistry", "Biology", "History", "Geography",
     "Political Science", "Economics", "Computer Science", "Physical Education"
   ];
 
@@ -82,7 +82,7 @@ export default function ScheduleForm({
       ...prev,
       schedule: {
         ...prev.schedule,
-        [day]: prev.schedule[day as keyof typeof prev.schedule].filter((_, i) => i !== index)
+        [day]: prev.schedule[day as keyof typeof prev.schedule].filter((_: any, i: number) => i !== index)
       }
     }));
   };
@@ -92,7 +92,7 @@ export default function ScheduleForm({
       ...prev,
       schedule: {
         ...prev.schedule,
-        [day]: prev.schedule[day as keyof typeof prev.schedule].map((period, i) =>
+        [day]: prev.schedule[day as keyof typeof prev.schedule].map((period: any, i: number) =>
           i === index ? { ...period, [field]: value } : period
         )
       }
@@ -106,7 +106,7 @@ export default function ScheduleForm({
           <h3 className="text-lg font-semibold mb-4">
             {initialData ? "Edit Schedule" : "Add Schedule"}
           </h3>
-          
+
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Basic Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -151,6 +151,9 @@ export default function ScheduleForm({
                   required
                 >
                   <option value="">Select Class</option>
+                  <option value="Nursery">Nursery</option>
+                  <option value="LKG">LKG</option>
+                  <option value="UKG">UKG</option>
                   <option value="1st">1st</option>
                   <option value="2nd">2nd</option>
                   <option value="3rd">3rd</option>
@@ -203,7 +206,7 @@ export default function ScheduleForm({
             {/* Weekly Schedule */}
             <div className="space-y-4">
               <h4 className="text-md font-semibold text-gray-900">Weekly Schedule</h4>
-              
+
               {days.map(day => (
                 <div key={day} className="border border-gray-200 rounded-lg p-4">
                   <div className="flex justify-between items-center mb-3">
@@ -253,7 +256,7 @@ export default function ScheduleForm({
                         </button>
                       </div>
                     ))}
-                    
+
                     {formData.schedule[day as keyof typeof formData.schedule].length === 0 && (
                       <p className="text-gray-500 text-sm text-center py-2">No periods added for this day</p>
                     )}

@@ -81,7 +81,7 @@ export default function TeacherForm({ teacher, onSubmit, onCancel, isLoading }: 
     });
   };
 
-  const availableClasses = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th"];
+  const availableClasses = ["Nursery","LKG","UKG","1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th"];
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">

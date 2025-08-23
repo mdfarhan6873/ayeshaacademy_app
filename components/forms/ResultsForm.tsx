@@ -44,8 +44,8 @@ export default function ResultsForm({
   };
 
   const subjects = [
-    "Mathematics", "English", "Hindi", "Science", "Social Science", 
-    "Physics", "Chemistry", "Biology", "History", "Geography", 
+    "Mathematics", "English", "Hindi", "Science", "Social Science",
+    "Physics", "Chemistry", "Biology", "History", "Geography",
     "Political Science", "Economics", "Computer Science", "Physical Education"
   ];
 
@@ -56,7 +56,7 @@ export default function ResultsForm({
           <h3 className="text-lg font-semibold mb-4">
             {initialData ? "Edit Result" : "Add Result"}
           </h3>
-          
+
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -86,6 +86,9 @@ export default function ResultsForm({
                   required
                 >
                   <option value="">Select Class</option>
+                  <option value="Nursery">Nursery</option>
+                  <option value="LKG">LKG</option>
+                  <option value="UKG">UKG</option>
                   <option value="1st">1st</option>
                   <option value="2nd">2nd</option>
                   <option value="3rd">3rd</option>

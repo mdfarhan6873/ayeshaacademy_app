@@ -296,7 +296,7 @@ export default function StudentPaymentManagement() {
         <body>
           <div class="receipt-container">
             <div class="header">
-              <div class="school-name">Step-Up Education Institute</div>
+              <div class="school-name">Ayesha Academy Purnea</div>
               <div>Student Fee Receipt</div>
               <div class="receipt-title">Receipt #${payment.receiptNumber}</div>
             </div>

@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "StepUpEdu - Educational Platform",
+  title: "Ayesha Academy Purnea",
   description: "Empowering minds, shaping futures",
 };
 

@@ -252,14 +252,14 @@ export default function LoginPage() {
         <div className="text-center space-y-4">
           <p className="text-sm text-slate-600">
             Don't have an account?{" "}
-            <a href="#" className="font-semibold text-blue-700 hover:text-indigo-200 underline">
+            <a href="https://ayeshaacademypurnea.com" className="font-semibold text-blue-700 hover:text-indigo-200 underline">
               Contact Administrator
             </a>
           </p>
           
           <div className="flex items-center justify-center space-x-2 text-xs text-slate-600">
             <span>Powered by</span>
-            <span className="font-bold text-blue-700">stepupedu.site</span>
+            <span className="font-bold text-blue-700">ayeshaacademypurnea.com</span>
           </div>
         </div>
       </div>

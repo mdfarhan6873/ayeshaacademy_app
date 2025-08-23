@@ -42,7 +42,7 @@ export default function Home() {
 
         {/* Tagline */}
         <h1 className="text-2xl font-bold text-gray-800 text-center mb-2">
-          StepUpEdu
+          Ayesha Academy Purnea
         </h1>
         <p className="text-gray-600 text-center text-sm max-w-xs">
           Empowering minds, shaping futures
@@ -58,7 +58,7 @@ export default function Home() {
       <div className="absolute bottom-8 text-center">
         <p className="text-gray-500 text-xs">
           Powered by{" "}
-          <span className="font-semibold text-indigo-600">stepupedu.site</span>
+          <span className="font-semibold text-indigo-600">ayeshaacademypurnea.com</span>
         </p>
       </div>
     </div>

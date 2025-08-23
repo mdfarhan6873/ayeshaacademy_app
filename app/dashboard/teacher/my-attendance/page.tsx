@@ -428,7 +428,7 @@ export default function TeacherAttendance() {
               <h1 className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                 My Attendance
               </h1>
-              <p className="text-sm text-gray-500">Mark your daily attendance</p>
+              <p className="text-sm text-gray-500">Mark your daily</p>
             </div>
           </div>
         </div>
@@ -642,6 +642,9 @@ export default function TeacherAttendance() {
                               required
                             >
                               <option value="">Select Class</option>
+                              <option value="Nursery">Nursery</option>
+                              <option value="LKG">LKG</option>
+                              <option value="UKG">UKG</option>
                               {Array.from({length: 12}, (_, i) => (
                                 <option key={i + 1} value={`${i + 1}`}>Class {i + 1}</option>
                               ))}

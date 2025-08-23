@@ -211,7 +211,7 @@ export default function StudentsManagePage() {
                 className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-200"
               >
                 <option value="">All Classes</option>
-                {["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th"].map((cls) => (
+                {["Nursery","LKG","UKG","1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th"].map((cls) => (
                   <option key={cls} value={cls}>
                     {cls}
                   </option>

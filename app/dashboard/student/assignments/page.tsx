@@ -33,7 +33,7 @@ const Assignments = () => {
           <p className="text-gray-600 mb-8 leading-relaxed">
             The <span className="font-semibold text-purple-600">Assignments</span> 
             section is currently under development.  
-            We’ll update you once it’s live!
+           
           </p>
 
           <div className="flex justify-center">

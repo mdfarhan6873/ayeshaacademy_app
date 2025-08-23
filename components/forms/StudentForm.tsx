@@ -118,6 +118,10 @@ export default function StudentForm({ student, onSubmit, onCancel, isLoading }: 
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 >
                   <option value="">Select Class</option>
+                  <option value="Nursery">Nursery</option>
+                  <option value="LKG">LKG</option>
+                  <option value="UKG">UKG</option>
+
                   <option value="1st">1st</option>
                   <option value="2nd">2nd</option>
                   <option value="3rd">3rd</option>
