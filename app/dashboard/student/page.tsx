@@ -147,7 +147,7 @@ export default function StudentDashboard() {
                 <h1 className="text-lg font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                   Student Dashboard
                 </h1>
-                <p className="text-xs text-gray-500">StepUpEdu Learning Portal</p>
+                <p className="text-xs text-gray-500">Ayesha Academy Portal</p>
               </div>
             </div>
             <div className="flex items-center space-x-3">
