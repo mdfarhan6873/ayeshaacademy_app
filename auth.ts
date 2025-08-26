@@ -97,4 +97,21 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   secret: process.env.AUTH_SECRET,
   // Force Node.js runtime to avoid Edge runtime issues with Mongoose
   trustHost: true,
+  debug: process.env.NODE_ENV === "development",
+  cookies: {
+    sessionToken: {
+      name: process.env.NODE_ENV === "production" 
+        ? "__Secure-next-auth.session-token"
+        : "next-auth.session-token",
+      options: {
+        httpOnly: true,
+        sameSite: "lax",
+        path: "/",
+        domain: process.env.NODE_ENV === "production" 
+          ? ".ayeshaacademypurnea.online"
+          : undefined,
+        secure: process.env.NODE_ENV === "production",
+      },
+    },
+  },
 });

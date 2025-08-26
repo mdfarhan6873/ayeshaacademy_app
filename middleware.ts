@@ -20,7 +20,9 @@ export async function middleware(req: NextRequest) {
 
   // If not authenticated and trying to access any protected route
   if (!isAuthenticated && !isPublicRoute) {
-    console.log(`Unauthenticated access attempt to: ${pathname}`);
+    if (process.env.NODE_ENV === "development") {
+      console.log(`Unauthenticated access attempt to: ${pathname}`);
+    }
     if (isApiRoute) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -44,15 +46,21 @@ export async function middleware(req: NextRequest) {
     // Check role-based access to specific dashboard routes and all their child routes
     if (isDashboardRoute) {
       if (pathname.startsWith("/dashboard/admin") && userRole !== "admin") {
-        console.log(`Admin route access denied for user role: ${userRole}`);
+        if (process.env.NODE_ENV === "development") {
+          console.log(`Admin route access denied for user role: ${userRole}`);
+        }
         return NextResponse.redirect(new URL(`/dashboard/${userRole}`, req.url));
       }
       if (pathname.startsWith("/dashboard/student") && userRole !== "student") {
-        console.log(`Student route access denied for user role: ${userRole}`);
+        if (process.env.NODE_ENV === "development") {
+          console.log(`Student route access denied for user role: ${userRole}`);
+        }
         return NextResponse.redirect(new URL(`/dashboard/${userRole}`, req.url));
       }
       if (pathname.startsWith("/dashboard/teacher") && userRole !== "teacher") {
-        console.log(`Teacher route access denied for user role: ${userRole}`);
+        if (process.env.NODE_ENV === "development") {
+          console.log(`Teacher route access denied for user role: ${userRole}`);
+        }
         return NextResponse.redirect(new URL(`/dashboard/${userRole}`, req.url));
       }
     }
