@@ -13,10 +13,10 @@ const requiredEnvVars = [
 ];
 
 const prodConfig = {
-  NEXTAUTH_URL: 'https://ayeshaacademypurnea.online',
-  MONGODB_URI: 'mongodb+srv://firdoshanjum09:Br11ae%404942@ayeshaacademy.eve12y1.mongodb.net/?retryWrites=true&w=majority&appName=AyeshaAcademy',
-  AUTH_SECRET: 'jEJgpe4NWKkAjao6Rrw2pGbWyN0JRsVe4IHePsxk1kA=',
-  NEXTAUTH_SECRET: 'uYzvYF/Gk+2G2SYbS8Zs1jljGIBu3t4TQUoPhsvJ5IQ='
+  NEXTAUTH_URL: 'https://your-production-domain.com',
+  MONGODB_URI: 'your-mongodb-connection-string-here',
+  AUTH_SECRET: 'your-32-character-secret-here',
+  NEXTAUTH_SECRET: 'your-32-character-secret-here'
 };
 
 console.log('\n🚀 Production Deployment Check for Ayesha Academy\n');
@@ -30,18 +30,18 @@ requiredEnvVars.forEach(envVar => {
 
 console.log('\n📝 Netlify Deployment Steps:');
 console.log('1. Go to Netlify Dashboard → Site Settings → Environment Variables');
-console.log('2. Add each environment variable above');
+console.log('2. Add your actual environment variables (DO NOT use the placeholder values above)');
 console.log('3. Ensure NEXTAUTH_URL uses HTTPS and matches your domain exactly');
 console.log('4. Trigger a new deployment');
 
-console.log('\n🔧 Test Credentials:');
+console.log('\n🔧 Test Credentials (after running npm run seed):');
 console.log('Admin   - Mobile: 9999999999, Password: admin123');
 console.log('Student - Mobile: 8888888888, Password: student123');  
 console.log('Teacher - Mobile: 6666666666, Password: teacher123');
 
 console.log('\n✅ After deployment, test:');
-console.log('- Homepage loads: https://ayeshaacademypurnea.online');
-console.log('- Login page works: https://ayeshaacademypurnea.online/login');
+console.log('- Homepage loads: https://your-production-domain.com');
+console.log('- Login page works: https://your-production-domain.com/login');
 console.log('- Authentication with test credentials');
 console.log('- Dashboard redirects work correctly');
 console.log('- Sessions persist across page refreshes');

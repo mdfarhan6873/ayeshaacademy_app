@@ -20,15 +20,17 @@
 
 ## 📋 Netlify Environment Variables
 
-**CRITICAL**: Add these exact environment variables in Netlify Dashboard:
+**CRITICAL**: Add these environment variables in Netlify Dashboard (use your actual values, not these placeholders):
 
 ```
-NEXTAUTH_URL=https://ayeshaacademypurnea.online
-MONGODB_URI=mongodb+srv://firdoshanjum09:Br11ae%404942@ayeshaacademy.eve12y1.mongodb.net/?retryWrites=true&w=majority&appName=AyeshaAcademy
-AUTH_SECRET=jEJgpe4NWKkAjao6Rrw2pGbWyN0JRsVe4IHePsxk1kA=
-NEXTAUTH_SECRET=uYzvYF/Gk+2G2SYbS8Zs1jljGIBu3t4TQUoPhsvJ5IQ=
+NEXTAUTH_URL=https://your-production-domain.com
+MONGODB_URI=your-mongodb-connection-string
+AUTH_SECRET=your-32-character-secret-key
+NEXTAUTH_SECRET=your-32-character-secret-key
 NODE_ENV=production
 ```
+
+**SECURITY NOTE**: Never commit actual credentials to Git. Use the values from your existing `.env` file.
 
 ## 🔧 Deployment Steps
 
@@ -44,7 +46,7 @@ NODE_ENV=production
 3. Wait for deployment to complete
 
 ### Step 3: Test Authentication
-1. Visit: `https://ayeshaacademypurnea.online/login`
+1. Visit your production domain login page
 2. Test with these credentials:
 
 | Role    | Mobile Number | Password    |

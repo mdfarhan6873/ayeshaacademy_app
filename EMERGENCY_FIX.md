@@ -15,12 +15,14 @@ Your code now has the correct configuration. **Deploy immediately** by:
 Ensure these are set in Netlify Dashboard → Site Settings → Environment Variables:
 
 ```
-NEXTAUTH_URL=https://ayeshaacademypurnea.online
-MONGODB_URI=mongodb+srv://firdoshanjum09:Br11ae%404942@ayeshaacademy.eve12y1.mongodb.net/?retryWrites=true&w=majority&appName=AyeshaAcademy
-AUTH_SECRET=jEJgpe4NWKkAjao6Rrw2pGbWyN0JRsVe4IHePsxk1kA=
-NEXTAUTH_SECRET=uYzvYF/Gk+2G2SYbS8Zs1jljGIBu3t4TQUoPhsvJ5IQ=
+NEXTAUTH_URL=https://your-production-domain.com
+MONGODB_URI=your-mongodb-connection-string  
+AUTH_SECRET=your-32-character-secret-key
+NEXTAUTH_SECRET=your-32-character-secret-key
 NODE_ENV=production
 ```
+
+**USE YOUR ACTUAL VALUES** from your local `.env` file.
 
 ## What Was Fixed
 
@@ -31,7 +33,7 @@ NODE_ENV=production
 
 ## Test After Deployment
 
-1. Visit: https://ayeshaacademypurnea.online
+1. Visit your production domain
 2. Check browser console - should be no chunk loading errors
 3. Test login with: Mobile: `8888888888`, Password: `student123`
 

@@ -15,16 +15,18 @@ In your Netlify dashboard, go to **Site settings > Environment variables** and a
 
 ### Required Environment Variables
 ```
-NEXTAUTH_URL=https://ayeshaacademypurnea.online
-MONGODB_URI=mongodb+srv://firdoshanjum09:Br11ae%404942@ayeshaacademy.eve12y1.mongodb.net/?retryWrites=true&w=majority&appName=AyeshaAcademy
-AUTH_SECRET=jEJgpe4NWKkAjao6Rrw2pGbWyN0JRsVe4IHePsxk1kA=
-NEXTAUTH_SECRET=uYzvYF/Gk+2G2SYbS8Zs1jljGIBu3t4TQUoPhsvJ5IQ=
+NEXTAUTH_URL=https://your-production-domain.com
+MONGODB_URI=your-mongodb-connection-string
+AUTH_SECRET=your-32-character-secret-key
+NEXTAUTH_SECRET=your-32-character-secret-key
 NODE_ENV=production
 ```
 
+**IMPORTANT**: Use your actual values from your local `.env` file, not these placeholders.
+
 ## Domain Configuration
 Ensure your domain is properly configured:
-- Primary domain: `https://ayeshaacademypurnea.online`
+- Primary domain: `https://your-production-domain.com`
 - Redirect all variants to primary domain
 - Enable HTTPS (should be automatic with Netlify)
 
@@ -41,7 +43,7 @@ Ensure your domain is properly configured:
 3. Or push changes to your connected Git repository
 
 ### Step 3: Test Authentication
-1. Visit https://ayeshaacademypurnea.online/login
+1. Visit your production domain/login
 2. Try logging in with test credentials:
    - Admin: Mobile: 9999999999, Password: admin123
    - Student: Mobile: 8888888888, Password: student123
