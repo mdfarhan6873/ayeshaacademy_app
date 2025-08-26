@@ -57,7 +57,7 @@ export default function NotificationForm({
                 name="title"
                 value={formData.title}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 placeholder="Enter notification title"
                 required
               />
@@ -72,7 +72,7 @@ export default function NotificationForm({
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 placeholder="Enter notification message..."
                 required
               />
@@ -86,7 +86,7 @@ export default function NotificationForm({
                 name="targetAudience"
                 value={formData.targetAudience}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 required
               >
                 <option value="">Select Target Audience</option>
@@ -104,7 +104,7 @@ export default function NotificationForm({
                 name="priority"
                 value={formData.priority}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
               >
                 <option value="low">Low</option>
                 <option value="normal">Normal</option>
@@ -122,7 +122,7 @@ export default function NotificationForm({
                 name="expiryDate"
                 value={formData.expiryDate}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
               <p className="text-xs text-gray-500 mt-1">
                 Leave empty if notification should not expire

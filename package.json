@@ -58,7 +58,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/mdfarhan6873/ayeshaacademy_app/issues"
   },

@@ -44,7 +44,7 @@ export default function ResultsForm({
   };
 
   const subjects = [
-    "Mathematics", "English", "Hindi", "Science", "Social Science",
+    "Mathematics", "English", "Hindi","Urdu", "Arabic", "Science", "Social Science",
     "Physics", "Chemistry", "Biology", "History", "Geography",
     "Political Science", "Economics", "Computer Science", "Physical Education"
   ];

@@ -51,7 +51,7 @@ export default function TeacherWhatsappForm({
                 name="groupName"
                 value={formData.groupName}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 text-stone-600 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 placeholder="Enter group name"
                 required
               />
@@ -66,7 +66,7 @@ export default function TeacherWhatsappForm({
                 name="groupLink"
                 value={formData.groupLink}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 placeholder="https://chat.whatsapp.com/..."
                 required
               />
@@ -81,7 +81,7 @@ export default function TeacherWhatsappForm({
                 value={formData.description}
                 onChange={handleChange}
                 rows={3}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 placeholder="Enter group description..."
               />
             </div>

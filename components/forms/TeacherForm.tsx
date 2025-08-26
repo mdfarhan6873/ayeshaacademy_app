@@ -114,7 +114,7 @@ export default function TeacherForm({ teacher, onSubmit, onCancel, isLoading }: 
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 text-stone-600 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="Enter teacher name"
                 />
               </div>
@@ -131,7 +131,7 @@ export default function TeacherForm({ teacher, onSubmit, onCancel, isLoading }: 
                   onChange={handleChange}
                   required
                   pattern="[0-9]{10}"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 text-stone-600 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="Enter 10-digit mobile number"
                 />
               </div>
@@ -147,7 +147,7 @@ export default function TeacherForm({ teacher, onSubmit, onCancel, isLoading }: 
                   value={formData.password}
                   onChange={handleChange}
                   required={!teacher}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 text-stone-600 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder={teacher ? "Leave blank to keep current password" : "Enter password"}
                 />
               </div>
@@ -164,7 +164,7 @@ export default function TeacherForm({ teacher, onSubmit, onCancel, isLoading }: 
                 onChange={handleChange}
                 required
                 rows={3}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="Enter complete address"
               />
             </div>
@@ -184,7 +184,7 @@ export default function TeacherForm({ teacher, onSubmit, onCancel, isLoading }: 
                       value={currentSubject.subjectName}
                       onChange={(e) => setCurrentSubject({ ...currentSubject, subjectName: e.target.value })}
                       placeholder="Subject name (e.g., Mathematics, Physics)"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      className="w-full px-3 text-stone-600 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                     />
                   </div>
                   

@@ -42,7 +42,7 @@ export default function ScheduleForm({
 
   const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
   const subjects = [
-    "Mathematics", "English", "Hindi", "Science", "Social Science",
+    "Mathematics", "English", "Hindi","Urdu","Quran","Arabic", "Science", "Social Science",
     "Physics", "Chemistry", "Biology", "History", "Geography",
     "Political Science", "Economics", "Computer Science", "Physical Education"
   ];
@@ -119,7 +119,7 @@ export default function ScheduleForm({
                   name="title"
                   value={formData.title}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   placeholder="Enter schedule title"
                   required
                 />
@@ -134,7 +134,7 @@ export default function ScheduleForm({
                   name="academicYear"
                   value={formData.academicYear}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   placeholder="e.g., 2024-25"
                 />
               </div>
@@ -147,7 +147,7 @@ export default function ScheduleForm({
                   name="class"
                   value={formData.class}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   required
                 >
                   <option value="">Select Class</option>
@@ -177,7 +177,7 @@ export default function ScheduleForm({
                   name="section"
                   value={formData.section}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 >
                   <option value="">Select Section</option>
                   <option value="A">A</option>
@@ -198,7 +198,7 @@ export default function ScheduleForm({
                 value={formData.description}
                 onChange={handleChange}
                 rows={2}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 placeholder="Enter schedule description..."
               />
             </div>
@@ -214,7 +214,7 @@ export default function ScheduleForm({
                     <button
                       type="button"
                       onClick={() => addPeriod(day)}
-                      className="text-sm bg-indigo-600 text-white px-3 py-1 rounded-md hover:bg-indigo-700"
+                      className="text-sm bg-indigo-600  text-white px-3 py-1 rounded-md hover:bg-indigo-700"
                     >
                       Add Period
                     </button>
@@ -245,7 +245,7 @@ export default function ScheduleForm({
                           placeholder="Teacher Name"
                           value={period.teacherName}
                           onChange={(e) => updatePeriod(day, index, 'teacherName', e.target.value)}
-                          className="px-2 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                          className="px-2 py-1 border text-stone-600 border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500"
                         />
                         <button
                           type="button"
@@ -270,7 +270,7 @@ export default function ScheduleForm({
                 type="button"
                 onClick={onCancel}
                 disabled={isLoading}
-                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 disabled:opacity-50"
+                className="flex-1 px-4 py-2 border  border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 disabled:opacity-50"
               >
                 Cancel
               </button>

@@ -84,7 +84,7 @@ export default function StudentForm({ student, onSubmit, onCancel, isLoading }: 
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 text-stone-600 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="Enter student name"
                 />
               </div>
@@ -100,7 +100,7 @@ export default function StudentForm({ student, onSubmit, onCancel, isLoading }: 
                   value={formData.rollNo}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="Enter roll number"
                 />
               </div>
@@ -115,7 +115,7 @@ export default function StudentForm({ student, onSubmit, onCancel, isLoading }: 
                   value={formData.class}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 >
                   <option value="">Select Class</option>
                   <option value="Nursery">Nursery</option>
@@ -139,7 +139,7 @@ export default function StudentForm({ student, onSubmit, onCancel, isLoading }: 
 
               {/* Section */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm  font-medium text-gray-700 mb-2">
                   Section *
                 </label>
                 <select
@@ -147,7 +147,7 @@ export default function StudentForm({ student, onSubmit, onCancel, isLoading }: 
                   value={formData.section}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 >
                   <option value="">Select Section</option>
                   <option value="A">A</option>
@@ -169,7 +169,7 @@ export default function StudentForm({ student, onSubmit, onCancel, isLoading }: 
                   onChange={handleChange}
                   required
                   pattern="[0-9]{10}"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="Enter 10-digit mobile number"
                 />
               </div>
@@ -185,7 +185,7 @@ export default function StudentForm({ student, onSubmit, onCancel, isLoading }: 
                   value={formData.password}
                   onChange={handleChange}
                   required={!student}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder={student ? "Leave blank to keep current password" : "Enter password"}
                 />
               </div>
@@ -201,7 +201,7 @@ export default function StudentForm({ student, onSubmit, onCancel, isLoading }: 
                   value={formData.parentName}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="Enter parent name"
                 />
               </div>
@@ -218,7 +218,7 @@ export default function StudentForm({ student, onSubmit, onCancel, isLoading }: 
                   onChange={handleChange}
                   required
                   pattern="[0-9]{10}"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="Enter parent mobile number"
                 />
               </div>
@@ -235,7 +235,7 @@ export default function StudentForm({ student, onSubmit, onCancel, isLoading }: 
                 onChange={handleChange}
                 required
                 rows={3}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="Enter complete address"
               />
             </div>

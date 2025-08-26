@@ -136,7 +136,7 @@ export default function TeacherPaymentForm({ payment, onSubmit, onCancel, isLoad
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search by mobile number or name..."
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                    className="w-full px-3 text-stone-600 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                     required={!selectedTeacher}
                   />
                   {isSearching && (
@@ -191,7 +191,7 @@ export default function TeacherPaymentForm({ payment, onSubmit, onCancel, isLoad
                   required
                   min="0"
                   step="0.01"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 text-stone-600 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="Enter amount"
                 />
               </div>
@@ -206,7 +206,7 @@ export default function TeacherPaymentForm({ payment, onSubmit, onCancel, isLoad
                   value={formData.paymentType}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 >
                   <option value="Monthly Salary">Monthly Salary</option>
                   <option value="Bonus">Bonus</option>
@@ -226,7 +226,7 @@ export default function TeacherPaymentForm({ payment, onSubmit, onCancel, isLoad
                   value={formData.paymentMethod}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 >
                   <option value="Bank Transfer">Bank Transfer</option>
                   <option value="Cash">Cash</option>
@@ -246,7 +246,7 @@ export default function TeacherPaymentForm({ payment, onSubmit, onCancel, isLoad
                   value={formData.paymentDate}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 />
               </div>
 
@@ -260,7 +260,7 @@ export default function TeacherPaymentForm({ payment, onSubmit, onCancel, isLoad
                   name="transactionId"
                   value={formData.transactionId}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="Enter transaction ID (optional)"
                 />
               </div>
@@ -275,7 +275,7 @@ export default function TeacherPaymentForm({ payment, onSubmit, onCancel, isLoad
                   value={formData.status}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 >
                   <option value="Completed">Completed</option>
                   <option value="Pending">Pending</option>
@@ -295,7 +295,7 @@ export default function TeacherPaymentForm({ payment, onSubmit, onCancel, isLoad
                 value={formData.remarks}
                 onChange={handleChange}
                 rows={3}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-3 py-2 text-stone-600 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="Enter any remarks (optional)"
               />
             </div>

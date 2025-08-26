@@ -53,7 +53,7 @@ export default function StudentWhatsappForm({
                 name="groupName"
                 value={formData.groupName}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 placeholder="Enter group name"
                 required
               />
@@ -67,7 +67,7 @@ export default function StudentWhatsappForm({
                 name="class"
                 value={formData.class}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 required
               >
                 <option value="">Select Class</option>
@@ -97,7 +97,7 @@ export default function StudentWhatsappForm({
                 name="section"
                 value={formData.section}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 required
               >
                 <option value="">Select Section</option>
@@ -118,7 +118,7 @@ export default function StudentWhatsappForm({
                 name="groupLink"
                 value={formData.groupLink}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 placeholder="https://chat.whatsapp.com/..."
                 required
               />
@@ -133,7 +133,7 @@ export default function StudentWhatsappForm({
                 value={formData.description}
                 onChange={handleChange}
                 rows={3}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 placeholder="Enter group description..."
               />
             </div>

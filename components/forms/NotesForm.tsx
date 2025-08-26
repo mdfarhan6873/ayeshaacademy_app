@@ -37,7 +37,7 @@ export default function NotesForm({
   };
 
   const subjects = [
-    "Mathematics", "English", "Hindi", "Science", "Social Science",
+    "Mathematics", "English", "Hindi","Urdu", "Science", "Social Science",
     "Physics", "Chemistry", "Biology", "History", "Geography",
     "Political Science", "Economics", "Computer Science", "Physical Education"
   ];
@@ -60,7 +60,7 @@ export default function NotesForm({
                 name="title"
                 value={formData.title}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 placeholder="Enter note title"
                 required
               />
@@ -75,7 +75,7 @@ export default function NotesForm({
                 value={formData.description}
                 onChange={handleChange}
                 rows={3}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 placeholder="Enter note description..."
               />
             </div>
@@ -88,7 +88,7 @@ export default function NotesForm({
                 name="class"
                 value={formData.class}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 required
               >
                 <option value="">Select Class</option>
@@ -118,7 +118,7 @@ export default function NotesForm({
                 name="section"
                 value={formData.section}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
               >
                 <option value="">Select Section</option>
                 <option value="A">A</option>
@@ -137,7 +137,7 @@ export default function NotesForm({
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 required
               >
                 <option value="">Select Subject</option>
@@ -156,7 +156,7 @@ export default function NotesForm({
                 name="url"
                 value={formData.url}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 placeholder="https://example.com/notes"
                 required
               />

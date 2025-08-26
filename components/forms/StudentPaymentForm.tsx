@@ -137,7 +137,7 @@ export default function StudentPaymentForm({ payment, onSubmit, onCancel, isLoad
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search by mobile number, name, class, section, or roll number..."
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                    className="w-full px-3 text-stone-600 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                     required={!selectedStudent}
                   />
                   {isSearching && (
@@ -154,7 +154,7 @@ export default function StudentPaymentForm({ payment, onSubmit, onCancel, isLoad
                           key={student._id}
                           type="button"
                           onClick={() => handleStudentSelect(student)}
-                          className="w-full text-left px-4 py-3 hover:bg-gray-100 border-b border-gray-100 last:border-b-0"
+                          className="w-full text-stone-600 text-left px-4 py-3 hover:bg-gray-100 border-b border-gray-100 last:border-b-0"
                         >
                           <div className="font-medium text-gray-900">{student.name}</div>
                           <div className="text-sm text-gray-600">
@@ -192,7 +192,7 @@ export default function StudentPaymentForm({ payment, onSubmit, onCancel, isLoad
                   required
                   min="0"
                   step="0.01"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="Enter amount"
                 />
               </div>
@@ -207,7 +207,7 @@ export default function StudentPaymentForm({ payment, onSubmit, onCancel, isLoad
                   value={formData.paymentType}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 >
                   <option value="Tuition Fee">Tuition Fee</option>
                   <option value="Admission Fee">Admission Fee</option>
@@ -227,7 +227,7 @@ export default function StudentPaymentForm({ payment, onSubmit, onCancel, isLoad
                   value={formData.paymentMethod}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 >
                   <option value="Cash">Cash</option>
                   <option value="Card">Card</option>
@@ -248,7 +248,7 @@ export default function StudentPaymentForm({ payment, onSubmit, onCancel, isLoad
                   value={formData.paymentDate}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 />
               </div>
 
@@ -262,7 +262,7 @@ export default function StudentPaymentForm({ payment, onSubmit, onCancel, isLoad
                   name="transactionId"
                   value={formData.transactionId}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="Enter transaction ID (optional)"
                 />
               </div>
@@ -277,7 +277,7 @@ export default function StudentPaymentForm({ payment, onSubmit, onCancel, isLoad
                   value={formData.status}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 >
                   <option value="Completed">Completed</option>
                   <option value="Pending">Pending</option>
@@ -297,7 +297,7 @@ export default function StudentPaymentForm({ payment, onSubmit, onCancel, isLoad
                 value={formData.remarks}
                 onChange={handleChange}
                 rows={3}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-3 py-2 border text-stone-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="Enter any remarks (optional)"
               />
             </div>
