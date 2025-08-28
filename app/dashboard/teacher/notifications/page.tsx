@@ -56,7 +56,7 @@ export default function TeacherNotificationsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+    <div className="min-h-screen text-stone-600 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
       {/* Header */}
       <div className="bg-white/80 backdrop-blur-md shadow-lg border-b border-white/20 sticky top-0 z-40">
         <div className="px-4 sm:px-6 py-4">
