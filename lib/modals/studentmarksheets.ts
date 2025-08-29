@@ -53,10 +53,10 @@ const StudentMarksheetSchema = new mongoose.Schema({
   generatedDate: { type: Date, default: Date.now },
   
   // Institution details
-  schoolName: { type: String, default: 'London Convent School' },
+  schoolName: { type: String, default: 'Ayesha Academy Purnea' },
   schoolLogo: { type: String, default: '/logo.png' },
-  schoolAddress: { type: String, default: '9 Mogal Kuan, Lohgani, New Rahui Road, Bihar Sharif (Nalanda)' },
-  schoolPhone: { type: String, default: '8340233504, 8578884646' }
+  schoolAddress: { type: String, default: 'Affan Colony, Ramghat, Purnea (Bihar)' },
+  schoolPhone: { type: String, default: '7368883140, 9798392937' }
 }, {
   timestamps: true
 });
