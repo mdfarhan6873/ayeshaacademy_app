@@ -44,7 +44,7 @@ export default function ResultsForm({
   };
 
   const subjects = [
-    "Mathematics", "English", "Hindi","Urdu", "Arabic", "Science", "Social Science",
+    "Mathematics", "English", "Hindi","Urdu", "Arabic","Quran", "Science", "Social Science",
     "Physics", "Chemistry", "Biology", "History", "Geography",
     "Political Science", "Economics", "Computer Science", "Physical Education"
   ];
@@ -89,6 +89,7 @@ export default function ResultsForm({
                   <option value="Nursery">Nursery</option>
                   <option value="LKG">LKG</option>
                   <option value="UKG">UKG</option>
+                  <option value="hifz">hifz</option>
                   <option value="1st">1st</option>
                   <option value="2nd">2nd</option>
                   <option value="3rd">3rd</option>

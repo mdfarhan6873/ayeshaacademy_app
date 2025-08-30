@@ -43,6 +43,8 @@ interface Marksheet {
   grade: string;
   division: string;
   rank: string;
+  principalSignature?: string;
+  classTeacherSignature?: string;
 }
 
 const GenerateMarksheet = () => {
@@ -319,8 +321,12 @@ const GenerateMarksheet = () => {
       else if (percentage >= 60) division = '2nd Division';
       else if (percentage >= 45) division = '3rd Division';
       
-      const marksheetData = {
+      const marksheetData: Marksheet = {
         studentId: selectedStudent._id,
+        studentName: selectedStudent.name,
+        rollNumber: selectedStudent.rollNo,
+        class: selectedStudent.class,
+        section: selectedStudent.section,
         examTitle,
         examType,
         examDate,
