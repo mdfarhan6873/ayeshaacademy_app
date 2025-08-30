@@ -237,11 +237,11 @@ const GenerateMarksheet = () => {
         // Calculate grade automatically based on obtained marks
         if (field === 'obtainedMarks' || field === 'fullMarks') {
           const percentage = (newSubjects[index].obtainedMarks / newSubjects[index].fullMarks) * 100;
-          if (percentage >= 90) newSubjects[index].grade = 'Diamond';
-          else if (percentage >= 80) newSubjects[index].grade = 'Gold';
-          else if (percentage >= 70) newSubjects[index].grade = 'Silver';
-          else if (percentage >= 60) newSubjects[index].grade = 'Bronze';
-          else if (percentage >= 50) newSubjects[index].grade = 'Iron';
+          if (percentage >= 90) newSubjects[index].grade = 'A+';
+          else if (percentage >= 80) newSubjects[index].grade = 'A';
+          else if (percentage >= 70) newSubjects[index].grade = 'B+';
+          else if (percentage >= 60) newSubjects[index].grade = 'B';
+          else if (percentage >= 50) newSubjects[index].grade = 'C';
           else newSubjects[index].grade = 'Fail';
         }
         
@@ -263,11 +263,11 @@ const GenerateMarksheet = () => {
       let grade = 'Fail';
       let division = 'Fail';
       
-      if (percentage >= 90) grade = 'Diamond';
-      else if (percentage >= 80) grade = 'Gold';
-      else if (percentage >= 70) grade = 'Silver';
-      else if (percentage >= 60) grade = 'Bronze';
-      else if (percentage >= 50) grade = 'Iron';
+      if (percentage >= 90) grade = 'A+';
+      else if (percentage >= 80) grade = 'A';
+      else if (percentage >= 70) grade = 'B+';
+      else if (percentage >= 60) grade = 'B';
+      else if (percentage >= 50) grade = 'C';
       
       if (percentage >= 75) division = '1st Division';
       else if (percentage >= 60) division = '2nd Division';
@@ -311,11 +311,11 @@ const GenerateMarksheet = () => {
       let grade = 'Fail';
       let division = 'Fail';
       
-      if (percentage >= 90) grade = 'Diamond';
-      else if (percentage >= 80) grade = 'Gold';
-      else if (percentage >= 70) grade = 'Silver';
-      else if (percentage >= 60) grade = 'Bronze';
-      else if (percentage >= 50) grade = 'Iron';
+      if (percentage >= 90) grade = 'A+';
+      else if (percentage >= 80) grade = 'A';
+      else if (percentage >= 70) grade = 'B+';
+      else if (percentage >= 60) grade = 'B';
+      else if (percentage >= 50) grade = 'C';
       
       if (percentage >= 75) division = '1st Division';
       else if (percentage >= 60) division = '2nd Division';
@@ -509,6 +509,7 @@ const GenerateMarksheet = () => {
                   <option value="Nursery">Nursery</option>
                   <option value="LKG">LKG</option>
                   <option value="UKG">UKG</option>
+                  <option value="hifz">hifz</option>
                   <option value="1st">1st</option>
                   <option value="2nd">2nd</option>
                   <option value="3rd">3rd</option>
@@ -857,14 +858,14 @@ const GenerateMarksheet = () => {
 const PrintableMarksheet: React.FC<{ marksheet: Marksheet }> = ({ marksheet }) => {
   try {
     return (
-      <div className="max-w-4xl mx-auto bg-white p-8 relative">
+      <div className="max-w-4xl mx-auto bg-white p-8 relative text-stone-700">
         {/* Watermark */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+        <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
           <Image
             src="/logo.png"
             alt="School Logo"
-            width={400}
-            height={400}
+            width={500}
+            height={500}
             className="object-contain"
             onError={(e) => {
               console.error('Logo image failed to load');
@@ -875,8 +876,8 @@ const PrintableMarksheet: React.FC<{ marksheet: Marksheet }> = ({ marksheet }) =
         
         {/* Header */}
         <div className="relative z-10">
-          <div className="flex items-center gap-4 mb-6 border-b-2 border-blue-600 pb-4">
-            <Image
+          <div className="flex items-center justify-center gap-4  border-b-2 border-blue-600 ">
+            {/* <Image
               src="/logo.png"
               alt="School Logo"
               width={80}
@@ -886,33 +887,29 @@ const PrintableMarksheet: React.FC<{ marksheet: Marksheet }> = ({ marksheet }) =
                 console.error('Header logo failed to load');
                 e.currentTarget.style.display = 'none';
               }}
-            />
+            /> */}
             <div className="flex-1 text-center">
-              <h1 className="text-3xl font-bold text-red-600 mb-1">AYESHA ACADEMY</h1>
+              <h1 className="text-3xl font-bold text-red-600 mb-1">AYESHA ACADEMY PURNEA</h1>
               <p className="text-sm text-gray-600 mb-1">Nursery to 12th Grade</p>
               <p className="text-sm text-gray-600 mb-1">CBSE & State Board Curriculum</p>
+               <p className='text-stone-600'>📞 Contact: 7368883140</p>
             </div>
-            <div className="text-right text-sm text-gray-600">
-              <p>📞 Contact: 123-456-7890</p>
-            </div>
+            
           </div>
           
-          <div className="text-center text-sm text-gray-600 mb-6">
-            Address: Purnea, Bihar, India - 854301
+          <div className="text-center text-sm text-gray-600 mb-4">
+            Address: Affan Colony, Ramghat, Purnea (Bihar), India - 854301
           </div>
           
           {/* Student Info */}
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-yellow-400 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-lg">
-                {marksheet.studentName.split(' ').map(n => n[0]).join('').slice(0, 2)}
-              </span>
-            </div>
+          <div className="flex items-center gap-4 ">
+            
             <div className="flex-1">
               <h2 className="text-2xl font-bold text-blue-600 mb-2">
                 {marksheet.studentName.toUpperCase()}
               </h2>
-              <p className="text-gray-700 mb-1">
+              <div className='flex items-center gap-4'>
+                <p className="text-gray-700 mb-1">
                 <span className="font-semibold">Class:</span> {marksheet.class} ({marksheet.section})
               </p>
               <p className="text-gray-700 mb-1">
@@ -921,12 +918,13 @@ const PrintableMarksheet: React.FC<{ marksheet: Marksheet }> = ({ marksheet }) =
               <p className="text-gray-700">
                 <span className="font-semibold">Exam Type:</span> {marksheet.examTitle} ({new Date(marksheet.examDate).toLocaleDateString()})
               </p>
+              </div>
             </div>
           </div>
           
           {/* Report Card */}
-          <div className="mb-6">
-            <div className="bg-blue-600 text-white text-center py-3 text-xl font-bold mb-0">
+          <div className="mb-2">
+            <div className=" text-stone-800 text-center py-3 text-xl font-bold mb-0 ">
               REPORT CARD
             </div>
             
@@ -974,7 +972,7 @@ const PrintableMarksheet: React.FC<{ marksheet: Marksheet }> = ({ marksheet }) =
           </div>
           
           {/* Summary */}
-          <div className="mb-8 space-y-2">
+          <div className="mb-8 space-y-2 flex items-center justify-around">
             <p className="text-lg">
               <span className="font-bold">Division:</span> {marksheet.division}
             </p>
@@ -992,26 +990,22 @@ const PrintableMarksheet: React.FC<{ marksheet: Marksheet }> = ({ marksheet }) =
           </div>
           
           {/* Signatures */}
-          <div className="grid grid-cols-3 gap-8 mt-12">
+          <div className="grid grid-cols-3 gap-8 ">
             <div className="text-center">
-              <div className="h-16 border-b border-gray-400 mb-2"></div>
+              <div className="h-16 border-b border-gray-400 "></div>
               <p className="font-semibold">Parent Signature</p>
             </div>
             <div className="text-center">
-              <div className="h-16 border-b border-gray-400 mb-2 relative">
+              <div className="h-16 border-b border-gray-400  relative">
                 {/* Sample signature */}
-                <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-blue-600 font-cursive text-xl">
-                  Teacher
-                </div>
+               
               </div>
               <p className="font-semibold">Class Teacher Signature</p>
             </div>
             <div className="text-center">
-              <div className="h-16 border-b border-gray-400 mb-2 relative">
+              <div className="h-16 border-b border-gray-400  relative">
                 {/* Sample signature */}
-                <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-green-600 font-cursive text-xl">
-                  Principal
-                </div>
+                
               </div>
               <p className="font-semibold">Principal Signature</p>
             </div>
