@@ -36,7 +36,7 @@ const StudentMarksheetSchema = new mongoose.Schema({
   totalMarks: { type: Number, default: 0 },
   obtainedMarks: { type: Number, default: 0 },
   percentage: { type: Number, default: 0 },
-  grade: { type: String, default: 'Fail' },
+  grade: { type: String, default: 'D' },
   division: { type: String, default: 'Fail' },
   rank: { type: String, default: '' }, // Student rank as string field
   
@@ -64,20 +64,20 @@ const StudentMarksheetSchema = new mongoose.Schema({
 // Calculate grade based on percentage
 StudentMarksheetSchema.methods.calculateGrade = function() {
   const percentage = this.percentage;
-  if (percentage >= 90) return 'Diamond';
-  if (percentage >= 80) return 'Gold';
-  if (percentage >= 70) return 'Silver';
-  if (percentage >= 60) return 'Bronze';
-  if (percentage >= 50) return 'Iron';
-  return 'Fail';
+  if (percentage >= 90) return 'A+';
+  if (percentage >= 80) return 'A';
+  if (percentage >= 70) return 'B+';
+  if (percentage >= 60) return 'B';
+  if (percentage >= 50) return 'C';
+  return 'D';
 };
 
 // Calculate division based on percentage
 StudentMarksheetSchema.methods.calculateDivision = function() {
   const percentage = this.percentage;
-  if (percentage >= 75) return '1st Division';
-  if (percentage >= 60) return '2nd Division';
-  if (percentage >= 45) return '3rd Division';
+  if (percentage >= 60) return '1st Division';
+  if (percentage >= 45) return '2nd Division';
+  if (percentage >= 30) return '3rd Division';
   return 'Fail';
 };
 
@@ -90,17 +90,17 @@ StudentMarksheetSchema.pre('save', function(next) {
     
     // Calculate grade based on percentage
     const percentage = this.percentage;
-    if (percentage >= 90) this.grade = 'Diamond';
-    else if (percentage >= 80) this.grade = 'Gold';
-    else if (percentage >= 70) this.grade = 'Silver';
-    else if (percentage >= 60) this.grade = 'Bronze';
-    else if (percentage >= 50) this.grade = 'Iron';
-    else this.grade = 'Fail';
+    if (percentage >= 90) this.grade = 'A+';
+    else if (percentage >= 80) this.grade = 'A';
+    else if (percentage >= 70) this.grade = 'B+';
+    else if (percentage >= 60) this.grade = 'B';
+    else if (percentage >= 50) this.grade = 'C';
+    else this.grade = 'D';
     
     // Calculate division based on percentage
-    if (percentage >= 75) this.division = '1st Division';
-    else if (percentage >= 60) this.division = '2nd Division';
-    else if (percentage >= 45) this.division = '3rd Division';
+    if (percentage >= 60) this.division = '1st Division';
+    else if (percentage >= 45) this.division = '2nd Division';
+    else if (percentage >= 30) this.division = '3rd Division';
     else this.division = 'Fail';
   }
   next();

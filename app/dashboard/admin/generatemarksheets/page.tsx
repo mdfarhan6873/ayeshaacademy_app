@@ -82,6 +82,7 @@ const GenerateMarksheet = () => {
   // Print mode
   const [showPrintView, setShowPrintView] = useState(false);
   const [selectedMarksheet, setSelectedMarksheet] = useState<Marksheet | null>(null);
+  const [printMode, setPrintMode] = useState<'color' | 'bw'>('color');
 
   // Edit mode
   const [editingMarksheet, setEditingMarksheet] = useState<Marksheet | null>(null);
@@ -242,7 +243,7 @@ const GenerateMarksheet = () => {
           else if (percentage >= 70) newSubjects[index].grade = 'B+';
           else if (percentage >= 60) newSubjects[index].grade = 'B';
           else if (percentage >= 50) newSubjects[index].grade = 'C';
-          else newSubjects[index].grade = 'Fail';
+          else newSubjects[index].grade = 'D';
         }
         
         return newSubjects;
@@ -260,7 +261,7 @@ const GenerateMarksheet = () => {
       const obtainedMarks = subjects.reduce((sum, subject) => sum + (subject.obtainedMarks || 0), 0);
       const percentage = totalMarks > 0 ? Math.round((obtainedMarks / totalMarks) * 100) : 0;
       
-      let grade = 'Fail';
+      let grade = 'D';
       let division = 'Fail';
       
       if (percentage >= 90) grade = 'A+';
@@ -269,14 +270,14 @@ const GenerateMarksheet = () => {
       else if (percentage >= 60) grade = 'B';
       else if (percentage >= 50) grade = 'C';
       
-      if (percentage >= 75) division = '1st Division';
-      else if (percentage >= 60) division = '2nd Division';
-      else if (percentage >= 45) division = '3rd Division';
+      if (percentage >= 60) division = '1st Division';
+      else if (percentage >= 45) division = '2nd Division';
+      else if (percentage >= 30) division = '3rd Division';
       
       return { totalMarks, obtainedMarks, percentage, grade, division };
     } catch (error) {
       console.error('Error calculating totals:', error);
-      return { totalMarks: 0, obtainedMarks: 0, percentage: 0, grade: 'Fail', division: 'Fail' };
+      return { totalMarks: 0, obtainedMarks: 0, percentage: 0, grade: 'D', division: 'Fail' };
     }
   }, [subjects]);
 
@@ -308,7 +309,7 @@ const GenerateMarksheet = () => {
       const obtainedMarks = subjects.reduce((sum, subject) => sum + (subject.obtainedMarks || 0), 0);
       const percentage = totalMarks > 0 ? Math.round((obtainedMarks / totalMarks) * 100) : 0;
       
-      let grade = 'Fail';
+      let grade = 'D';
       let division = 'Fail';
       
       if (percentage >= 90) grade = 'A+';
@@ -317,9 +318,9 @@ const GenerateMarksheet = () => {
       else if (percentage >= 60) grade = 'B';
       else if (percentage >= 50) grade = 'C';
       
-      if (percentage >= 75) division = '1st Division';
-      else if (percentage >= 60) division = '2nd Division';
-      else if (percentage >= 45) division = '3rd Division';
+      if (percentage >= 60) division = '1st Division';
+      else if (percentage >= 45) division = '2nd Division';
+      else if (percentage >= 30) division = '3rd Division';
       
       const marksheetData: Marksheet = {
         studentId: selectedStudent._id,
@@ -446,9 +447,10 @@ const GenerateMarksheet = () => {
     }
   }, [selectedStudent, fetchStudentMarksheets]);
 
-  const handlePrint = useCallback((marksheet: Marksheet) => {
+  const handlePrintMode = useCallback((marksheet: Marksheet, mode: 'color' | 'bw') => {
     try {
       setSelectedMarksheet(marksheet);
+      setPrintMode(mode);
       setShowPrintView(true);
       setTimeout(() => {
         window.print();
@@ -469,7 +471,7 @@ const GenerateMarksheet = () => {
           Back to Edit
         </button>
         
-        <PrintableMarksheet marksheet={selectedMarksheet} />
+        <PrintableMarksheet marksheet={selectedMarksheet} printMode={printMode} />
       </div>
     );
   }
@@ -820,13 +822,20 @@ const GenerateMarksheet = () => {
                               <PencilIcon className="h-4 w-4" />
                               Edit
                             </button>
-                            <button
-                              onClick={() => handlePrint(marksheet)}
-                              className="flex items-center gap-2 px-3 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
-                            >
-                              <PrinterIcon className="h-4 w-4" />
-                              Print
-                            </button>
+                <button
+                  onClick={() => handlePrintMode(marksheet, 'color')}
+                  className="flex items-center gap-2 px-3 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+                >
+                  <PrinterIcon className="h-4 w-4" />
+                  Print (Color)
+                </button>
+                <button
+                  onClick={() => handlePrintMode(marksheet, 'bw')}
+                  className="flex items-center gap-2 px-3 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 ml-2"
+                >
+                  <PrinterIcon className="h-4 w-4" />
+                  Print (B&W)
+                </button>
                             <button
                               onClick={() => handleDelete(marksheet._id!)}
                               className="flex items-center gap-2 px-3 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
@@ -855,163 +864,197 @@ const GenerateMarksheet = () => {
 };
 
 // Printable Marksheet Component with error boundary - Updated with your design
-const PrintableMarksheet: React.FC<{ marksheet: Marksheet }> = ({ marksheet }) => {
+const PrintableMarksheet: React.FC<{ marksheet: Marksheet, printMode?: 'color' | 'bw' }> = ({ marksheet, printMode = 'color' }) => {
   try {
+    const isBW = printMode === 'bw';
     return (
-      <div className="max-w-4xl mx-auto bg-white p-8 relative text-stone-700">
-        {/* Watermark */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
-          <Image
-            src="/logo.png"
-            alt="School Logo"
-            width={500}
-            height={500}
-            className="object-contain"
-            onError={(e) => {
-              console.error('Logo image failed to load');
-              e.currentTarget.style.display = 'none';
-            }}
-          />
-        </div>
-        
-        {/* Header */}
-        <div className="relative z-10">
-          <div className="flex items-center justify-center gap-4  border-b-2 border-blue-600 ">
-            {/* <Image
+      <>
+        <style jsx>{`
+          .print-black-white * {
+            color: black !important;
+            background-color: white !important;
+            border-color: black !important;
+          }
+          .print-black-white .bg-blue-600 {
+            background-color: black !important;
+          }
+          .print-black-white .bg-red-600 {
+            background-color: black !important;
+          }
+          .print-black-white .text-white {
+            color: black !important;
+          }
+          .print-black-white .text-red-600 {
+            color: black !important;
+          }
+          .print-black-white .text-blue-600 {
+            color: black !important;
+          }
+          .print-black-white .border-blue-600 {
+            border-color: black !important;
+          }
+          @media print {
+            .print-black-white {
+              -webkit-print-color-adjust: exact;
+              color-adjust: exact;
+            }
+          }
+        `}</style>
+        <div className={`max-w-4xl mx-auto bg-white p-8 relative text-stone-900 ${isBW ? 'print-black-white' : ''}`}>
+          {/* Watermark */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
+            <Image
               src="/logo.png"
               alt="School Logo"
-              width={80}
-              height={80}
+              width={500}
+              height={500}
               className="object-contain"
               onError={(e) => {
-                console.error('Header logo failed to load');
+                console.error('Logo image failed to load');
                 e.currentTarget.style.display = 'none';
               }}
-            /> */}
-            <div className="flex-1 text-center">
-              <h1 className="text-3xl font-bold text-red-600 mb-1">AYESHA ACADEMY PURNEA</h1>
-              <p className="text-sm text-gray-600 mb-1">Nursery to 12th Grade</p>
-              <p className="text-sm text-gray-600 mb-1">CBSE & State Board Curriculum</p>
-               <p className='text-stone-600'>📞 Contact: 7368883140</p>
+            />
+          </div>
+
+          {/* Header */}
+          <div className="relative z-10">
+            <div className="flex items-center justify-center gap-4  border-b-2 border-blue-600 ">
+              {/* <Image
+                src="/logo.png"
+                alt="School Logo"
+                width={80}
+                height={80}
+                className="object-contain"
+                onError={(e) => {
+                  console.error('Header logo failed to load');
+                  e.currentTarget.style.display = 'none';
+                }}
+              /> */}
+              <div className="flex-1 text-center">
+                <h1 className="text-3xl font-bold text-red-600 mb-1">AYESHA ACADEMY PURNEA</h1>
+                <p className="text-sm text-gray-600 mb-1">Nursery to 12th Grade</p>
+                <p className="text-sm text-gray-600 mb-1">CBSE & State Board Curriculum</p>
+                 <p className='text-stone-600'>📞 Contact: 7368883140</p>
+              </div>
+
             </div>
-            
-          </div>
-          
-          <div className="text-center text-sm text-gray-600 mb-4">
-            Address: Affan Colony, Ramghat, Purnea (Bihar), India - 854301
-          </div>
-          
-          {/* Student Info */}
-          <div className="flex items-center gap-4 ">
-            
-            <div className="flex-1">
-              <h2 className="text-2xl font-bold text-blue-600 mb-2">
-                {marksheet.studentName.toUpperCase()}
-              </h2>
-              <div className='flex items-center gap-4'>
+
+            <div className="text-center text-sm text-gray-600 mb-4">
+              Address: Affan Colony, Ramghat, Purnea (Bihar), India - 854301
+            </div>
+
+            {/* Student Info */}
+            <div className="flex items-center gap-4 ">
+
+              <div className="flex-1">
+                <h2 className="text-2xl font-bold text-blue-600 mb-2">
+                  {marksheet.studentName.toUpperCase()}
+                </h2>
+                <div className='flex items-center gap-4'>
+                  <p className="text-gray-700 mb-1">
+                  <span className="font-semibold">Class:</span> {marksheet.class} ({marksheet.section})
+                </p>
                 <p className="text-gray-700 mb-1">
-                <span className="font-semibold">Class:</span> {marksheet.class} ({marksheet.section})
-              </p>
-              <p className="text-gray-700 mb-1">
-                <span className="font-semibold">Roll Number:</span> {marksheet.rollNumber}
-              </p>
-              <p className="text-gray-700">
-                <span className="font-semibold">Exam Type:</span> {marksheet.examTitle} ({new Date(marksheet.examDate).toLocaleDateString()})
-              </p>
+                  <span className="font-semibold">Roll Number:</span> {marksheet.rollNumber}
+                </p>
+                <p className="text-gray-700">
+                  <span className="font-semibold">Exam Type:</span> {marksheet.examTitle} ({new Date(marksheet.examDate).toLocaleDateString()})
+                </p>
+                </div>
               </div>
             </div>
-          </div>
-          
-          {/* Report Card */}
-          <div className="mb-2">
-            <div className=" text-stone-800 text-center py-3 text-xl font-bold mb-0 ">
-              REPORT CARD
-            </div>
-            
-            <table className="w-full border-collapse border border-gray-300">
-              <thead>
-                <tr className="bg-blue-600 text-white">
-                  <th className="border border-gray-300 p-2">SUBJECT</th>
-                  <th className="border border-gray-300 p-2">FULL MARKS</th>
-                  <th className="border border-gray-300 p-2">PASS MARKS</th>
-                  <th className="border border-gray-300 p-2">ASSIGNMENT</th>
-                  <th className="border border-gray-300 p-2">THEORY</th>
-                  <th className="border border-gray-300 p-2">MARKS OBTAINED</th>
-                  <th className="border border-gray-300 p-2">GRADE</th>
-                </tr>
-              </thead>
-              <tbody>
-                {marksheet.subjects.map((subject, index) => (
-                  <tr key={index}>
-                    <td className="border border-gray-300 p-2 font-semibold uppercase">{subject.subject}</td>
-                    <td className="border border-gray-300 p-2 text-center">{subject.fullMarks}</td>
-                    <td className="border border-gray-300 p-2 text-center">{subject.passMarks}</td>
-                    <td className="border border-gray-300 p-2 text-center">
-                      {subject.assignmentMarks > 0 ? subject.assignmentMarks : '-'}
-                    </td>
-                    <td className="border border-gray-300 p-2 text-center">
-                      {subject.theoryMarks > 0 ? subject.theoryMarks : subject.obtainedMarks}
-                    </td>
-                    <td className="border border-gray-300 p-2 text-center font-semibold">{subject.obtainedMarks}</td>
-                    <td className="border border-gray-300 p-2 text-center font-semibold">{subject.grade}</td>
+
+            {/* Report Card */}
+            <div className="mb-2">
+              <div className=" text-stone-800 text-center py-3 text-xl font-bold mb-0 ">
+                REPORT CARD
+              </div>
+
+              <table className="w-full border-collapse border text-stone-800 border-gray-300">
+                <thead>
+                  <tr className="bg-blue-600 text-white">
+                    <th className="border border-gray-300 p-2">SUBJECT</th>
+                    <th className="border border-gray-300 p-2">FULL MARKS</th>
+                    <th className="border border-gray-300 p-2">PASS MARKS</th>
+                    <th className="border border-gray-300 p-2">ASSIGNMENT</th>
+                    <th className="border border-gray-300 p-2">THEORY</th>
+                    <th className="border border-gray-300 p-2">MARKS OBTAINED</th>
+                    <th className="border border-gray-300 p-2">GRADE</th>
                   </tr>
-                ))}
-              </tbody>
-              <tfoot>
-                <tr className="bg-red-600 text-white font-bold">
-                  <td className="border border-gray-300 p-2">TOTAL</td>
-                  <td className="border border-gray-300 p-2 text-center">{marksheet.totalMarks}</td>
-                  <td className="border border-gray-300 p-2"></td>
-                  <td className="border border-gray-300 p-2"></td>
-                  <td className="border border-gray-300 p-2"></td>
-                  <td className="border border-gray-300 p-2 text-center">{marksheet.obtainedMarks}</td>
-                  <td className="border border-gray-300 p-2"></td>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-          
-          {/* Summary */}
-          <div className="mb-8 space-y-2 flex items-center justify-around">
-            <p className="text-lg">
-              <span className="font-bold">Division:</span> {marksheet.division}
-            </p>
-            <p className="text-lg">
-              <span className="font-bold">Grade:</span> {marksheet.grade}
-            </p>
-            <p className="text-lg">
-              <span className="font-bold">Percentage:</span> {marksheet.percentage}%
-            </p>
-            {marksheet.rank && (
+                </thead>
+                <tbody>
+                  {marksheet.subjects.map((subject, index) => (
+                    <tr key={index}>
+                      <td className="border border-gray-300 p-2 font-semibold uppercase">{subject.subject}</td>
+                      <td className="border border-gray-300 p-2 text-center">{subject.fullMarks}</td>
+                      <td className="border border-gray-300 p-2 text-center">{subject.passMarks}</td>
+                      <td className="border border-gray-300 p-2 text-center">
+                        {subject.assignmentMarks > 0 ? subject.assignmentMarks : '-'}
+                      </td>
+                      <td className="border border-gray-300 p-2 text-center">
+                        {subject.theoryMarks > 0 ? subject.theoryMarks : subject.obtainedMarks}
+                      </td>
+                      <td className="border border-gray-300 p-2 text-center font-semibold">{subject.obtainedMarks}</td>
+                      <td className="border border-gray-300 p-2 text-center font-semibold">{subject.grade}</td>
+                    </tr>
+                  ))}
+                </tbody>
+                <tfoot>
+                  <tr className="bg-red-600 text-white font-bold">
+                    <td className="border border-gray-300 p-2">TOTAL</td>
+                    <td className="border border-gray-300 p-2 text-center">{marksheet.totalMarks}</td>
+                    <td className="border border-gray-300 p-2"></td>
+                    <td className="border border-gray-300 p-2"></td>
+                    <td className="border border-gray-300 p-2"></td>
+                    <td className="border border-gray-300 p-2 text-center">{marksheet.obtainedMarks}</td>
+                    <td className="border border-gray-300 p-2"></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+
+            {/* Summary */}
+            <div className="mb-8 space-y-2 flex items-center justify-around">
               <p className="text-lg">
-                <span className="font-bold">Rank:</span> {marksheet.rank}
+                <span className="font-bold">Division:</span> {marksheet.division}
               </p>
-            )}
-          </div>
-          
-          {/* Signatures */}
-          <div className="grid grid-cols-3 gap-8 ">
-            <div className="text-center">
-              <div className="h-16 border-b border-gray-400 "></div>
-              <p className="font-semibold">Parent Signature</p>
+              <p className="text-lg">
+                <span className="font-bold">Grade:</span> {marksheet.grade}
+              </p>
+              <p className="text-lg">
+                <span className="font-bold">Percentage:</span> {marksheet.percentage}%
+              </p>
+              {marksheet.rank && (
+                <p className="text-lg">
+                  <span className="font-bold">Rank:</span> {marksheet.rank}
+                </p>
+              )}
             </div>
-            <div className="text-center">
-              <div className="h-16 border-b border-gray-400  relative">
-                {/* Sample signature */}
-               
+
+            {/* Signatures */}
+            <div className="grid grid-cols-3 gap-8 ">
+              <div className="text-center">
+                <div className="h-16 border-b border-gray-400 "></div>
+                <p className="font-semibold">Parent Signature</p>
               </div>
-              <p className="font-semibold">Class Teacher Signature</p>
-            </div>
-            <div className="text-center">
-              <div className="h-16 border-b border-gray-400  relative">
-                {/* Sample signature */}
-                
+              <div className="text-center">
+                <div className="h-16 border-b border-gray-400  relative">
+                  {/* Sample signature */}
+
+                </div>
+                <p className="font-semibold">Class Teacher Signature</p>
               </div>
-              <p className="font-semibold">Principal Signature</p>
+              <div className="text-center">
+                <div className="h-16 border-b border-gray-400  relative">
+                  {/* Sample signature */}
+
+                </div>
+                <p className="font-semibold">Principal Signature</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   } catch (error) {
     console.error('Error rendering PrintableMarksheet:', error);

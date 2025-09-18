@@ -97,7 +97,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   secret: process.env.AUTH_SECRET,
   // Force Node.js runtime to avoid Edge runtime issues with Mongoose
   trustHost: true,
-  debug: process.env.NODE_ENV === "development",
+  debug: false,
   cookies: {
     sessionToken: {
       name: process.env.NODE_ENV === "production" 
