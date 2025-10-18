@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import StudentForm from "@/components/forms/StudentForm";
+import BulkStudentUploadForm from "@/components/forms/BulkStudentUploadForm";
 import TeacherForm from "@/components/forms/TeacherForm";
 import StudentWhatsappForm from "@/components/forms/StudentWhatsappForm";
 import TeacherWhatsappForm from "@/components/forms/TeacherWhatsappForm";
@@ -13,7 +14,7 @@ import ScheduleForm from "@/components/forms/ScheduleForm";
 import NotificationForm from "@/components/forms/NotificationForm";
 import ResultsForm from "@/components/forms/ResultsForm";
 
-type QuickAddType = 'student' | 'teacher' | 'studentWhatsapp' | 'teacherWhatsapp' | 'notes' | 'schedule' | 'notification' | 'result' | null;
+type QuickAddType = 'student' | 'bulkStudent' | 'teacher' | 'studentWhatsapp' | 'teacherWhatsapp' | 'notes' | 'schedule' | 'notification' | 'result' | null;
 
 interface QuickAddModalProps {
   type: QuickAddType;
@@ -54,6 +55,13 @@ function QuickAddModal({ type, onClose, onSuccess }: QuickAddModalProps) {
     student: (
       <StudentForm
         onSubmit={(data) => handleSubmit(data, '/api/admin/students')}
+        onCancel={onClose}
+        isLoading={isLoading}
+      />
+    ),
+    bulkStudent: (
+      <BulkStudentUploadForm
+        onSubmit={(data) => handleSubmit(data, '/api/admin/students/bulk-upload')}
         onCancel={onClose}
         isLoading={isLoading}
       />
@@ -563,6 +571,22 @@ export default function AdminDashboard() {
                       </svg>
                     </div>
                     <span>Add Student</span>
+                  </div>
+                </button>
+                <button
+                  onClick={() => {
+                    setQuickAddModal('bulkStudent');
+                    setShowQuickAddMenu(false);
+                  }}
+                  className="w-full text-left px-4 py-3 hover:bg-indigo-50 text-sm font-medium text-gray-700 hover:text-indigo-600 transition-colors"
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                    </div>
+                    <span>Bulk Student Upload</span>
                   </div>
                 </button>
                 <button
